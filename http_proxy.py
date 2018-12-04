@@ -3,12 +3,20 @@ from threading import Thread
 import sys
 import time
 
+def usage():
+    print('syntax : http_proxy <port>')
+    print('sample : http_proxy 8080')
+
 def setServer():
     print('+++ Proxy Server Running')
     print('+++ If you want to Quit, Press Ctrl-C')
 
     HOST = 'localhost'
-    PORT = int(sys.argv[1])
+    try:
+        PORT = int(sys.argv[1])
+    except:
+        usage()
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -55,3 +63,4 @@ if __name__=='__main__':
         except KeyboardInterrupt:
             sock.close()
             print("--- Proxy Server OUT...")
+            sys.exit(1)
