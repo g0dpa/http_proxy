@@ -4,8 +4,8 @@ import sys
 import time
 
 def usage():
-    print('syntax : http_proxy <port>')
-    print('sample : http_proxy 8080')
+    print('syntax : python http_proxy <port>')
+    print('sample : python http_proxy 8080')
 
 def setServer():
     print('+++ Proxy Server Running')
